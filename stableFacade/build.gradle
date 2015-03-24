@@ -1,0 +1,17 @@
+dependencies {
+    compile 'com.sparkjava:spark-core:2.1'
+    compile 'org.codehaus.groovy:groovy-all:2.4.3'
+    compile 'org.slf4j:slf4j-api:1.7.7'
+    testCompile "junit:junit:4.11"
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title':  project.name,
+                   'Implementation-Version': version,
+                   'Main-Class': 'no.iterate.application.StableServer'
+    }
+    baseName = project.name + '-all'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}

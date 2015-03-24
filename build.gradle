@@ -1,0 +1,23 @@
+subprojects {
+    version = '1.0'
+    group = 'no.iterate.hysterix'
+
+    repositories {
+        // Use 'jcenter' for resolving your dependencies.
+        // You can declare any Maven/Ivy/file repository here.
+        jcenter()
+    }
+
+    apply plugin: 'groovy'
+    apply plugin: 'java'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+}
+
+project(':stableFacade') {
+    dependencies {
+        compile project(':badClient')
+        compile project(':hysterixClient')
+    }
+}
