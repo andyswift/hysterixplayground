@@ -1,4 +1,4 @@
-=Hysterix playground=
+#Hysterix playground
 
 This is a simple project containing
 
